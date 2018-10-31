@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <object th:include="fragments/fragment :: title" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+<body>
+    <nav th:replace="fragments/fragment :: navbar"></nav>
+    <h3>Update Dealer</h3>
+    <form th:action="@{|/dealer/update/${dealer.id}|}" th:object="${newDealer}" method="POST">
+
+        Alamat: <br>
+        <input type="text" name="alamat" th:value="${dealer.alamat}"/>
+        <br>
+
+        No Telp: <br>
+        <input type="text" name="noTelp" th:value="${dealer.noTelp}"/>
+        <br>
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
